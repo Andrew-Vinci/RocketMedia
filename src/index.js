@@ -102,8 +102,10 @@ const firebaseConfig = {
         signInWithEmailAndPassword(auth, email, password)
             .then((cred) => {
                 console.log('User Logged In', cred.user)
+                window.location.href = 'userProfile.html'; // Replace with the actual path
             })
             .catch((err) => {
                 console.log(err.message)
             })
+
     })

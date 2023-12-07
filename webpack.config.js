@@ -4,7 +4,9 @@ module.exports = {
     mode: 'development',
     entry: {
         login: './src/index.js', // Path to the entry file for the login page
-        signUp: './src/signUp.js', // Path to the entry file for the messaging page
+        signUp: './src/signUp.js',
+        userProfile: './src/userProfile.js',
+        messaging: './src/messaging.js' // Path to the entry file for the messaging page
         // Add more entry points for other pages as needed
     },
     output: {

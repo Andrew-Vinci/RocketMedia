@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>--------------------------------------------------------------------------------------</h2>
+
+    <h2>Message Requests</h2>
+    <label for="messageRequest">Select Message Request:</label>
+    <select class="messageRequest"></select>
+
+    <p class="messageCount"></p>
+    <button class="acceptMR">Accept</button>
+    <button class="rejectMR">Decline</button>
+
+
+    <h2>--------------------------------------------------------------------------------------</h2>
+    
+
+    <h2>Message Suggestions</h2>
+
+    <ul class="message_list">
+        <button class="button1"></button>
+        <button class="button2"></button>
+        <button class="button3"></button>
+    </ul>
+
+    <h1 class="notifyMsg"></h1>
+
+    <h2>--------------------------------------------------------------------------------------</h2>
+
+    <h2>Message Thread</h2>
+
+    <label for="messageRequestSelect">Select a Conversation:</label>
+    <select id="messageRequestSelect"></select>
+    <button id="requestButton">Select</button>
+
+    <div id="messageContainer"></div>
+
+    <div id="messageInputContainer">
+        <input type="text" id="messageInput" placeholder="Type a message...">
+        <button id="sendMessageButton">Send</button>
+    </div>
+
+    <h2>--------------------------------------------------------------------------------------</h2>
+
+    <script src="messaging.bundle.js"></script>
+    
+</body>
+</html>

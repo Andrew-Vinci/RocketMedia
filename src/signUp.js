@@ -115,8 +115,12 @@ const firebaseConfig = {
                           msgNotify: false
                       })
                   })
+                  .then(() => {
+                    window.location.href = 'userProfile.html'; // Replace with the actual path
+                  })
               })
               .catch((err) => {
                   console.log(err.message)
               })
+
       })
