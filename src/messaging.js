@@ -368,7 +368,10 @@ const uidMap = new Map()
                     messageElement.innerText = `${messageData.sender}: ${messageData.content}`;
                     messageContainer.appendChild(messageElement);
                 });
+                //scrollToBottom();
             });
+           
+
         }
         
 
@@ -413,6 +416,18 @@ const uidMap = new Map()
         
             console.log("Message sent!");
         }
-    
+
+
+        const messageContainer = document.getElementById("messageContainer");
+
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.type === 'childList') {
+                    messageContainer.scrollTop = messageContainer.scrollHeight;
+                }
+            });
+        });
+        
+        observer.observe(messageContainer, { childList: true });
         
 

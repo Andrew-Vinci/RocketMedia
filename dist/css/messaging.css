@@ -1,0 +1,93 @@
+/* Base layout styles */
+body {
+    display: flex;
+    margin: 0;
+    height: 100vh;
+}
+
+/* Sidebar styles with flexbox */
+.sidebar {
+    width: 300px; /* Adjust as needed */
+    background-color:rgb(50, 50, 50); /* Light grey background */
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; /* Arrange children vertically */
+    height: 100vh; /* Full height */
+}
+
+/* New container for suggestions and notifications */
+.suggestions-notifications {
+    margin-top: auto; /* Pushes to the bottom */
+    padding-top: 20px; /* Spacing from the above content */
+}
+
+#messageContainer {
+    max-height: 650px;
+    overflow-y: auto;
+}
+
+/* Styles for individual messages */
+#messageContainer > * {
+    padding: 10px; /* Space inside each message */
+    /*border-bottom: 1px solid #eee; /* Thin line for separation */
+    margin-bottom: 10px; /* Space between messages */
+}
+
+/* Optional: Style for the last message to remove the bottom border */
+#messageContainer > *:last-child {
+    border-bottom: none;
+}
+
+/* Adjust the message thread container to avoid overlap with the message input */
+.message-thread {
+    flex-grow: 1; /* Takes up remaining space */
+    background-color:rgb(60, 60, 60);
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto; /* Scrollbar for overflow */
+    padding-bottom: 60px; /* Adjust as per the height of your message input area */
+}
+
+/* Message input area */
+#messageInputContainer {
+    position: fixed;
+    bottom: 0;
+    left: 300px; /* Same as sidebar width */
+    width: calc(100% - 300px); /* Remaining width */
+    background-color: rgb(60, 60, 60);
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+#messageInput {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+/* Additional styles for buttons, inputs, etc. */
+button {
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 5px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 100%;
+}
+
+select {
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+/* Style for dividing lines */
+h2 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
