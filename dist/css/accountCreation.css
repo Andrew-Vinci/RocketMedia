@@ -11,7 +11,7 @@
     background-color: slategray;
 }
 
-.container .loginTabletForm{
+.container .accCreationTabletForm{
     display: flex;
     flex-direction: column;
     justify-content: center; /* Center horizontally */
@@ -22,11 +22,11 @@
     background-color:slateblue;
 }
 
-.container .loginTabletForm .h2{
+.container .accCreationTabletForm .h2{
     margin-top: -50px;
 }
 
-.container .loginTabletForm .userName{
+.container .accCreationTabletForm .profilePic{
     border: 3px solid black;
     width: 75%;
     height: 10%;
@@ -35,7 +35,7 @@
 
 }
 
-.container .loginTabletForm .passWord{
+.container .accCreationTabletForm .backgroundPic{
     border: 3px solid black;
     width: 75%;
     height: 10%;
@@ -44,14 +44,23 @@
 
 }
 
-.container .loginTabletForm .loginButton{
+.container .accCreationTabletForm.usernameSU{
+    border: 3px solid black;
+    width: 75%;
+    height: 10%;
+    font-size: 18px;
+    margin: 15px;
+
+}
+
+.container .accCreationTabletForm .loginButton{
     width: 55%;
     height: 7%;
     font-size: 15px;
     box-shadow: 2px 2px 5px black;
 }
 
-.container .newUser {
+.container .accountExists {
     display: inline-block;
     width: 15%;
     height: 5%;
@@ -60,7 +69,7 @@
     margin-top: 20px;
     text-align: center;
     line-height: normal;
-    text-decoration: none;
+    text-decoration: none; /* Removes the underline from the link */
     background-color: #f0f0f0;
     border: 1px solid black;
     border-radius: 4px;

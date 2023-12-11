@@ -6,7 +6,8 @@ module.exports = {
         login: './src/index.js', // Path to the entry file for the login page
         signUp: './src/signUp.js',
         userProfile: './src/userProfile.js',
-        messaging: './src/messaging.js' // Path to the entry file for the messaging page
+        messaging: './src/messaging.js',
+        accountCreation: './src/accCreation.js' // Path to the entry file for the messaging page
         // Add more entry points for other pages as needed
     },
     output: {

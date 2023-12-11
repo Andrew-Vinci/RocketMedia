@@ -59,6 +59,7 @@ const firebaseConfig = {
     auth.onAuthStateChanged(user => {
         if (user) {
             uid = user.uid;
+            fetchUserProfile(uid); // Fetch user profile
             // setupSnapshotListeners();  // Set up snapshot listeners
         } else {
             console.log("No user is signed in.");
@@ -72,6 +73,34 @@ const firebaseConfig = {
         console.log("Working")
         window.location.href = 'messaging.html'; // Replace with the actual path
     })
+
+    async function fetchUserProfile(uid) {
+        if (!uid) {
+            console.log("No user ID provided.");
+            return;
+        }
+    
+        try {
+            const userProfileRef = doc(db, "profile", uid); // Assuming 'profiles' is the collection name
+            const userProfileSnap = await getDoc(userProfileRef);
+    
+            if (userProfileSnap.exists()) {
+                const userData = userProfileSnap.data();
+                console.log("User Profile Data:", userData);
+                document.querySelector('.profile-avatar').src = userData.proPic;
+                document.querySelector('.name').textContent = userData.username;
+                if (userData.proBack) {
+                    document.querySelector('.profile-header').style.backgroundImage = `url('${userData.proBack}')`;
+                }
+            } else {
+                console.log("No profile found for user ID:", uid);
+            }
+        } catch (error) {
+            console.error("Error fetching user profile:", error);
+        }
+    }
+
+
 
 
     /*

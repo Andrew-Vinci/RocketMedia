@@ -55,10 +55,26 @@ const firebaseConfig = {
     const auth = getAuth()// initializes authentication service Video #11
     const user = auth.currentUser;
     let uid = null;
+    let username = null;
 
-    auth.onAuthStateChanged(user => {
+    auth.onAuthStateChanged(async user => {
         if (user) {
             uid = user.uid;
+
+            const userDocRef = doc(db, 'users', uid);
+
+            try {
+                const userDoc = await getDoc(userDocRef);
+                if (userDoc.exists()) {
+                    const userData = userDoc.data();
+                    username = userData.userName;
+                    console.log('Username:', username);
+                } else {
+                    console.log('User document does not exist');
+                }
+            } catch (error) {
+                console.error('Error fetching user document:', error);
+            }
             // setupSnapshotListeners();  // Set up snapshot listeners
         } else {
             console.log("No user is signed in.");
@@ -67,60 +83,29 @@ const firebaseConfig = {
     });
 
 
-      // SIGN USERS UP
-      const signupForm = document.querySelector('.signUpTabletForm')
-      signupForm.addEventListener('submit', (e) => {
-          e.preventDefault()
-  
-          const email = signupForm.emailSU.value
-          const password = signupForm.passwordSU.value
-  
-          createUserWithEmailAndPassword(auth, email, password)
-              .then((cred) => {
-  
-                  const user = cred.user
-                  const userName = signupForm.usernameSU.value
-  
-                  console.log('User ID: ', cred.user.uid) // console log #3
-  
-                  signupForm.reset()
-  
-                  return setDoc(doc(db, "users", user.uid), {
-                      email: user.email,
-                      userName: userName,
-                      uid: user.uid
-                  })
-                  .then(() => {
-                      return setDoc(doc(db, 'friendsList', user.uid, 'friends', '1111111'), {
-                          name: 'placeholder'
-                      })
-                  })
-                  .then(() => {
-                      return setDoc(doc(db, 'notifications', user.uid, 'friendRequests', '1111111'), {
-                          acceptRequest: false,
-                          userName: "placeholder"
-                      })
-                  })
-                  .then(() => {
-                      return setDoc(doc(db, 'notifications', user.uid, 'messageRequests', '1111111'), {
-                          acceptMessage: false,
-                          userName: "placeholder"
-                      })
-                  })
-                  .then(() => {
-                      return setDoc(doc(db, 'notifications', user.uid), {
-                          frCount: 0,
-                          frNotify: false,
-                          msgCount: 0,
-                          msgNotify: false
-                      })
-                  })
-                  .then(() => {
-                    window.location.href = 'accountCreation.html';
-                  })
-              })
-              .catch((err) => {
-                  console.log(err.message)
-              })
+    const form = document.querySelector(".accCreationTabletForm");
 
-      })
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const userId = uid;
+        const profilePic = e.target.elements.profilePic.value;
+        const backgroundPic = e.target.elements.backgroundPic.value;
+
+
+            // Add data to Firestore
+            const docRef = doc(db, 'profile', uid);
+
+            try {
+                await setDoc(docRef, {
+                    proPic: profilePic,
+                    proBack: backgroundPic,
+                    username: username
+                });
+                console.log('Profile created successfully!');
+                window.location.href = 'userProfile.html';
+            } catch (error) {
+                console.error('Error writing document: ', error);
+            }
+    })
+
