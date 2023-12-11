@@ -98,7 +98,47 @@ const firebaseConfig = {
         } catch (error) {
             console.error("Error fetching user profile:", error);
         }
+
+
+        const postsCollectionRef = collection(db, "profile", uid, "posts");
+    onSnapshot(postsCollectionRef, (snapshot) => {
+        // Clear existing posts in the DOM
+        const postsContainer = document.querySelector('.posts-container');
+        postsContainer.innerHTML = '';
+
+        // Loop through each post document
+        snapshot.docs.forEach(doc => {
+            const postData = doc.data();
+            // Create a new element for each post and append it to the posts container
+            const postElement = document.createElement('div');
+            postElement.classList.add('post');
+            postElement.textContent = postData.post;
+            postsContainer.appendChild(postElement);
+        })
+    })
+        
     }
+
+
+    const postButton = document.querySelector('.post-button');
+const postTextArea = document.querySelector('.post-creation textarea');
+
+postButton.addEventListener('click', async () => {
+    const postContent = postTextArea.value.trim();
+    if (postContent) {
+        const postsCollectionRef = collection(db, "profile", uid, "posts");
+        try {
+            await addDoc(postsCollectionRef, {
+                post: postContent,
+                timestamp: serverTimestamp()
+            });
+            postTextArea.value = ''; // Clear the text area after posting
+        } catch (error) {
+            console.error('Error adding post: ', error);
+        }
+    }
+});
+
 
 
 

@@ -64,3 +64,54 @@ p{
 .toMessages:hover {
     background-color: #0056b3; /* Darker shade on hover */
 }
+
+.post-creation {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 80%;
+    margin-left: 2%;
+}
+
+.post-creation textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+    min-height: 100px;
+}
+
+.post-button {
+    align-self: flex-end;
+    padding: 10px 15px;
+    background-color: darkcyan;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.post-button:hover {
+    background-color: #0056b3;
+}
+
+.posts-container {
+    /* Style for the container where posts will be displayed */
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+/* Example style for individual posts */
+.post {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    margin-left: 5%;
+    padding: 15px;
+}
+

@@ -102,6 +102,14 @@ const firebaseConfig = {
                     proBack: backgroundPic,
                     username: username
                 });
+
+                const postsCollectionRef = collection(docRef, 'posts');
+
+                // Adding initial post to the 'posts' subcollection
+                await addDoc(postsCollectionRef, {
+                    post: "I Just Joined Rocket Media!",
+                    timestamp: serverTimestamp() // If you want to timestamp the post
+                });
                 console.log('Profile created successfully!');
                 window.location.href = 'userProfile.html';
             } catch (error) {

@@ -65,30 +65,34 @@ const uidMap = new Map()
           users.push({ ...doc.data(), id: doc .id })
       })
 
-      // diplaying users currently
-      for(let i = 0; i < messageList.length; i++){
-          if (users[i] && users[i].userName) {
+      let buttonIndex = 0;
 
-              const checkUID = users[i].uid
-              const user = auth.currentUser;
-
-              if(user){
+      for (let userIndex = 0; userIndex < users.length; userIndex++) {
+          if (buttonIndex >= messageList.length) {
+              break;
+          }
+      
+          const user = users[userIndex];
+      
+          if (user && user.userName) {
+              const checkUID = user.uid;
+      
+              if (auth.currentUser) {
                   const friendDocRef = doc(db, 'friendsList', auth.currentUser.uid, 'friends', checkUID);
                   const friendDoc = await getDoc(friendDocRef);
-
-                  const notificationSent = doc(db, 'notifications', checkUID, 'messageRequests', auth.currentUser.uid)
-                  const checkNotification = await getDoc(notificationSent)
-
-                  // Checks if user is already friend, is current user, or if a notification already exists. Prevents repeat.
-                  if(friendDoc.exists() ||  checkUID == auth.currentUser.uid || checkNotification.exists()){
-                      continue
+      
+                  const notificationSent = doc(db, 'notifications', checkUID, 'messageRequests', auth.currentUser.uid);
+                  const checkNotification = await getDoc(notificationSent);
+      
+                  // Check conditions
+                  if (friendDoc.exists() || checkUID === auth.currentUser.uid || checkNotification.exists()) {
+                      continue;
                   }
-
-                  messageList[i].textContent = users[i].userName;
-                  uidMap.set(users[i].userName, users[i].uid);
-
-              } else {
-                  messageList[i].textContent = "User not found";
+      
+                  // Set text and increment buttonIndex only if conditions are not met
+                  messageList[buttonIndex].textContent = user.userName;
+                  uidMap.set(user.userName, user.uid);
+                  buttonIndex++;
               }
           }
       }
