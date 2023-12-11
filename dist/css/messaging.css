@@ -44,7 +44,7 @@ body {
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto; /* Scrollbar for overflow */
-    padding-bottom: 60px; /* Adjust as per the height of message input area */
+    padding-bottom: 60px; /* Adjust the height of message input area */
 }
 
 /* Message input area */
@@ -65,7 +65,7 @@ body {
     margin-right: 10px;
 }
 
-/* Additional styles for buttons, inputs, etc. */
+/* Additional styles for buttons, inputs */
 button {
     cursor: pointer;
     padding: 5px 10px;

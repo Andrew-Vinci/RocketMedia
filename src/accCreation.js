@@ -75,7 +75,7 @@ const firebaseConfig = {
             } catch (error) {
                 console.error('Error fetching user document:', error);
             }
-            // setupSnapshotListeners();  // Set up snapshot listeners
+            // setupSnapshotListeners();
         } else {
             console.log("No user is signed in.");
             currentUserId = null;  // Reset the user ID
@@ -108,7 +108,7 @@ const firebaseConfig = {
                 // Adding initial post to the 'posts' subcollection
                 await addDoc(postsCollectionRef, {
                     post: "I Just Joined Rocket Media!",
-                    timestamp: serverTimestamp() // If you want to timestamp the post
+                    timestamp: serverTimestamp()
                 });
                 console.log('Profile created successfully!');
                 window.location.href = 'userProfile.html';

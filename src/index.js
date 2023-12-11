@@ -59,7 +59,7 @@ const firebaseConfig = {
     auth.onAuthStateChanged(user => {
         if (user) {
             uid = user.uid;
-            // setupSnapshotListeners();  // Set up snapshot listeners
+            // setupSnapshotListeners();
         } else {
             console.log("No user is signed in.");
             currentUserId = null;  // Reset the user ID
@@ -102,7 +102,7 @@ const firebaseConfig = {
         signInWithEmailAndPassword(auth, email, password)
             .then((cred) => {
                 console.log('User Logged In', cred.user)
-                window.location.href = 'userProfile.html'; // Replace with the actual path
+                window.location.href = 'userProfile.html';
             })
             .catch((err) => {
                 console.log(err.message)
