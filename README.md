@@ -28,7 +28,7 @@ The eventual goal is for this to be ported using the React library and to fully 
 
 ## Installation
 
-> git clone
+> git clone https://github.com/Andrew-Vinci/RocketMedia.git
 
 ## Usage
 
@@ -40,14 +40,17 @@ RocketMedia allows a user to keep in touch with friends through an online messag
 - Messaging friends through the Firebase API
 - User Friends List/Friend Recommendations, albeit primitive
 
-![alt text](<Screenshot 2024-07-15 at 4.12.31 PM.png>)
 ### User Sign-in/Sign-up Screenshot
+![alt text](<Screenshot 2024-07-15 at 4.12.31 PM.png>)
 
-![alt text](<Screenshot 2024-07-15 at 3.50.21 PM.png>)
+
 ### User Profile Screenshot
+![alt text](<Screenshot 2024-07-15 at 3.50.21 PM.png>)
 
-![alt text](<Screenshot 2024-07-15 at 3.51.18 PM.png>)
+
 ### User Messaging/Friend Recommendation Sreenshot
+![alt text](<Screenshot 2024-07-15 at 3.51.18 PM.png>)
+
 
 ## Acknowledgments
 
