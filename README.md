@@ -28,7 +28,7 @@ The eventual goal is for this to be ported using the React library and to fully 
 
 ## Installation
 
-> git clone https://github.com/Andrew-Vinci/RocketMedia.git
+> `git clone https://github.com/Andrew-Vinci/RocketMedia.git`
 
 ## Usage
 
