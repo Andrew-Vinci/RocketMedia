@@ -17,7 +17,7 @@ As such, most of the features are confusing and not ideal. I would recommend che
 
 Nonetheless, this project is important to me for a few reaons. First, it showcases the ability to learn new technologies and create applications that work. Second, it is a good jumping off point for future development. The website itself may not be pretty, but the underlying database is and with a better user interface, it could be useful to future applications that I create.
 
-The eventual goal is for this to be ported using the React library and to full flesh out the UI and enhance the user experience. For now, it serves as a good reference point for what is possible with Firebase and NoSQL databases.
+The eventual goal is for this to be ported using the React library and to fully flesh out the UI and enhance the user experience. For now, it serves as a good reference point for what is possible with Firebase and NoSQL databases.
 
 
 ## Table of Contents
